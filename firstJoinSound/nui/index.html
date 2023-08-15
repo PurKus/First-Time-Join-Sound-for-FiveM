@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Player</title>
+</head>
+<body>
+    <audio id="soundPlayer"></audio>
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.data.type == 'playSound') {
+                let audioElement = document.getElementById('soundPlayer');
+                audioElement.src = event.data.soundFile;
+                
+                audioElement.volume = 0.1;  // Adjust this value to set the desired volume.
+                
+                audioElement.play();
+            }
+        });
+    </script>
+</body>
+</html>
